@@ -25,24 +25,29 @@ addBookToLibrary("A Game of Thrones", "George R. R. Martin", 694, true);
 
 function displayAllBooks()
 {
-    let output = "";
+    const bookContainer = document.getElementById("data");
+    bookContainer.innerHTML = ""; // Clear the container first
 
-    for (let book of myLibrary)
+    for (const book of myLibrary)
     {
-        let data = "";
+        const card = document.createElement("div");
+        card.classList.add("book");
 
-        for (let info in book)
-        {
-            if (info != "id")
-            {
-                data += book[info] + (info === "isRead" ? ". " : ", ");
-            }
-        }
+        const title = document.createElement("p");
+        title.innerHTML = `<b>Title:</b> "${book.title}"`;
 
-        output += data + "\n";
+        const author = document.createElement("p");
+        author.innerHTML = `<b>Author:</b> ${book.author}`;
+
+        const pages = document.createElement("p");
+        pages.innerHTML = `<b>Pages:</b> ${book.pagesNum}`;
+
+        const readStatus = document.createElement("p");
+        readStatus.innerHTML = `<b>Read:</b> ${book.isRead ? "Yes" : "No"}`;
+
+        card.append(title, author, pages, readStatus);
+        bookContainer.appendChild(card);
     }
-
-    document.getElementById("data").innerText = output;
 }
 
 displayAllBooks();
