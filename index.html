@@ -7,6 +7,34 @@
     <title>Odin Library</title>
 </head>
 <body>
+    <dialog>
+        <button autofocus id="close-dialog">X</button>
+        <form action="" method="dialog">
+            <div class="field">
+                <label for="title">Title:</label>
+                <input type="text" id="title">
+            </div>
+
+            <div class="field">
+                <label for="author">Author:</label>
+                <input type="text" id="author">
+            </div>
+
+            <div class="field">
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages">
+            </div>
+
+            <div class="field">
+                <label for="read-status">Read status:</label>
+                <input type="checkbox" id="read-status">
+            </div>
+
+            <button type="submit" id="add-button">Add</button>
+        </form>
+    </dialog>
+    <button id="show-dialog">Add books</button>
+
     <div id="data">
 
     </div>

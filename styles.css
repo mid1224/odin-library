@@ -8,10 +8,79 @@
     padding-left: 15px;
     padding-right: 15px;
     border: 2px solid black;
-    border-radius: 30px;
+    border-radius: 20px;
 
     background-color: blanchedalmond;
 
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2em;
+}
+
+#show-dialog {
+    background-color: whitesmoke;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+
+    padding: 5px 10px;
+}
+
+#show-dialog:hover {
+    background: burlywood;
+    color: white;
+
+    cursor: pointer;
+}
+
+#close-dialog {
+    background-color: lightcoral;
+    
+    border: 2px solid black;
+    border-radius: 10px;
+
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+#close-dialog:hover {
+    background: darkred;
+    color: white;
+
+    cursor: pointer;
+}
+
+#add-button {
+    background-color: lightgreen;
+    
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#add-button:hover {
+    background: green;
+    color: white;
+
+    cursor: pointer;
+}
+
+#add-button:active {
+    background-color: lightgreen;
+    color: black;
+}
+
+dialog form {
+    margin-top: 30px;
+    margin-bottom: 10px;
+
+    display: grid;
+    gap: 15px;
+}
+
+#title, #author, #pages {
+    width: 96%;
+}
+
+#read-status {
+    position: absolute;
 }
