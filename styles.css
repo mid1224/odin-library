@@ -31,6 +31,21 @@
     cursor: pointer;
 }
 
+.read-button {
+    margin: 12px 0px;
+    border-radius: 10px;
+    border: 2px solid black;
+
+    background-color: snow;
+}
+
+.read-button:hover {
+    background: gray;
+    color: white;
+
+    cursor: pointer;
+}
+
 #show-dialog {
     background-color: whitesmoke;
     

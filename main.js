@@ -46,14 +46,19 @@ function displayAllBooks()
         const readStatus = document.createElement("p");
         readStatus.innerHTML = `<b>Read:</b> ${book.isRead ? "Yes" : "No"}`;
 
+        const readButton = document.createElement("button");
+        readButton.textContent = 'Read';
+        readButton.classList.add("read-button");
+
         const removeButton = document.createElement("button");
         removeButton.textContent = 'Remove';
         removeButton.classList.add("remove-button");
 
-        card.append(title, author, pages, readStatus, removeButton);
+        card.append(title, author, pages, readStatus, readButton, removeButton);
         bookContainer.appendChild(card);
     }
 
+    attachReadListeners();
     attachRemoveListeners();
 }
 
@@ -105,7 +110,7 @@ function attachRemoveListeners() {
             const parentCard = btn.parentNode;
             const bookID = parentCard.dataset.id;
 
-            for (const book of myLibrary)
+            for (const book of myLibrary) //Remove from js array
             {
                 if (book.id == bookID)
                 {
@@ -114,7 +119,29 @@ function attachRemoveListeners() {
                 }
             }
 
-            parentCard.remove();
+            parentCard.remove(); //Remove from HTML Dom
+
+            displayAllBooks();
+        });
+    }
+}
+
+function attachReadListeners() {
+    const readButtons = document.getElementsByClassName("read-button");
+
+    for (const btn of readButtons)
+    {
+        btn.addEventListener("click", () => {
+            const parentCard = btn.parentNode;
+            const bookID = parentCard.dataset.id;
+
+            for (const book of myLibrary) //Change read status of book in array
+            {
+                if (book.id == bookID)
+                {
+                    book.isRead = !book.isRead;
+                }
+            }
 
             displayAllBooks();
         });
