@@ -1,14 +1,9 @@
-html, body {
-    height: 100%;
-}
-
-html {
-    display: table;
-    margin: auto;
-}
-
 body {
-    display: table-cell;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .book {
