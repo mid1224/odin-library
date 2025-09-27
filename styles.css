@@ -16,6 +16,21 @@
     font-size: 1.2em;
 }
 
+.remove-button {
+    margin: 12px 0px;
+    border-radius: 10px;
+    border: 2px solid black;
+
+    background-color: lightcoral;
+}
+
+.remove-button:hover {
+    background: darkred;
+    color: white;
+
+    cursor: pointer;
+}
+
 #show-dialog {
     background-color: whitesmoke;
     

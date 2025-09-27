@@ -32,6 +32,7 @@ function displayAllBooks()
     {
         const card = document.createElement("div");
         card.classList.add("book");
+        card.dataset.id = book.id;
 
         const title = document.createElement("p");
         title.innerHTML = `<b>Title:</b> "${book.title}"`;
@@ -45,9 +46,15 @@ function displayAllBooks()
         const readStatus = document.createElement("p");
         readStatus.innerHTML = `<b>Read:</b> ${book.isRead ? "Yes" : "No"}`;
 
-        card.append(title, author, pages, readStatus);
+        const removeButton = document.createElement("button");
+        removeButton.textContent = 'Remove';
+        removeButton.classList.add("remove-button");
+
+        card.append(title, author, pages, readStatus, removeButton);
         bookContainer.appendChild(card);
     }
+
+    attachRemoveListeners();
 }
 
 displayAllBooks();
@@ -88,3 +95,28 @@ addBookButton.addEventListener('click', (event) => {
 
     //dialog.close(); //Close the dialog after hitting submit
 });
+
+function attachRemoveListeners() {
+    const removeButtons = document.getElementsByClassName("remove-button");
+
+    for (const btn of removeButtons)
+    {
+        btn.addEventListener("click", () => {
+            const parentCard = btn.parentNode;
+            const bookID = parentCard.dataset.id;
+
+            for (const book of myLibrary)
+            {
+                if (book.id == bookID)
+                {
+                    let index = myLibrary.indexOf(book);
+                    myLibrary.splice(index, 1);
+                }
+            }
+
+            parentCard.remove();
+
+            displayAllBooks();
+        });
+    }
+}
